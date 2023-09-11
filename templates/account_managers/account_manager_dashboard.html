@@ -1,0 +1,29 @@
+{% extends "dashboards/staff_portal_base.html" %}
+{% load client_tags %}
+{% block html_title %}
+    {{ html_title }}
+{% endblock html_title %}
+{% block content %}
+    <div class="container">
+        <div class="main">
+            <div class="d-flex flex-row">
+                <div class="infocell mb-4">
+                    <h5 class="text-center">Your Dashboard</h5>
+                    <p>You are logged in as {{ user.email }}</p>
+                    <p>Your last login was {{ user.last_login }}</p>
+                    <p>
+                        Your are managing <strong>{% total_clients user %}</strong> clients and <strong>{% total_contracts user %}</strong>contracts
+                    </p>
+                    <p>Total electricity contracts {% total_electricity_contracts user %}</p>
+                    <p>Total Gas Contracts {% total_gas_contracts user %}</p>
+                    <p>Total Seamless Contracts {% total_seamless_contracts user %}</p>
+                    <p>Total Non Seamless Contracts {% total_non_seamless_contracts user %}</p>
+                    <p>Total Contracts Requiring Directors Approval {% total_contracts_directors_approval user %}</p>
+                    <p>Contracts ending this year {% total_contracts_end_dates user %}</p>
+                    <p>Out of Contract {% total_contracts_ooc user %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ redirect_to_login_immediately }}
+{% endblock content %}

@@ -1,0 +1,105 @@
+{% extends "dashboards/staff_portal_base.html" %}
+{% load client_tags %}
+{% block html_title %}
+    {{ html_title }}
+{% endblock html_title %}
+{% block content %}
+    <div class="container">
+        <div class="d-flex flex-row">
+            <div class="infocell mb-4">
+                <h5 class="text-center fw-bold">Your Dashboard</h5>
+                <p>You are logged in as {{ user.email }}</p>
+                <p>Your last login was {{ user.last_login }}</p>
+                <p>
+                    Your are managing <strong>{% total_clients user %}</strong> clients and <strong>{% total_contracts user %}</strong> contracts
+                </p>
+            </div>
+        </div>
+        <h5 class="text-center mt-4 fw-bold">CONTRACTS SUMMARY</h5>
+        <hr>
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fas fa-lightbulb fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Electricity Contracts</h6>
+                        <p class="fw-bold">{% total_electricity_contracts user %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fa-solid fa-fire-flame-simple fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Gas Contracts</h6>
+                        <p class="fw-bold">{% total_gas_contracts user %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fas fa-file-contract fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Seamless Contracts</h6>
+                        <p class="fw-bold">{% total_seamless_contracts user %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fas fa-file-contract fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Non-Seamless</h6>
+                        <p class="fw-bold">{% total_non_seamless_contracts user %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fas fa-glasses fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Requiring Directors Approval</h6>
+                        <p class="fw-bold">{% total_contracts_directors_approval user %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fa-regular fa-calendar fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Ending this year</h6>
+                        <p class="fw-bold">{% total_contracts_end_dates user %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-transparent border-0 text-center mb-3">
+                    <div class="card-image">
+                        <i class="fas fa-calendar-xmark fa-3x text-success"></i>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Out of Contract</h6>
+                        <p class="fw-bold">{% total_contracts_ooc user %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ redirect_to_login_immediately }}
+{% endblock content %}

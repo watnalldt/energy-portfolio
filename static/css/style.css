@@ -1,0 +1,128 @@
+ /* WHOLE PAGE */
+ * { box-sizing: border-box; }
+
+ /* FULL HEIGHT FLEX BODY */
+ body {
+      padding: 0; margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font:Normal  16px/24px "Open Sans", sans-serif;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #515151 !important;
+		}
+ #brand {
+   color: white;
+   text-transform: lowercase;
+ }
+#the_hero  {
+    background-image: url(../img/energy-portfolio-cover.jpg);
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+
+}
+
+
+
+ /* ALLOW MAIN TO FILL HEIGHT */
+ #pageMain { flex-grow: 1; }
+
+ /* HEADER */
+ #pageHeader {
+   background-color: #fff;
+ }
+/* SECTION HEADINGS */
+ .section-headings {
+  text-transform: uppercase;
+}
+ /* ALIGNMENT */
+.align-center {
+  text-align: center;
+}
+
+/* TESTIMONIALS */
+
+ i.quote{
+  font-size: 20px;
+  color: #008000;
+}
+
+.info .name, .job {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ERRORS 404 AND 500 */
+
+/* ERROR POSITION */
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+ /* ERROR TEXT MESSAGES */
+.error-txt1 {
+  font-size: 18px;
+}
+
+.error-txt2 {
+  font-size: 20px;
+}
+
+.error-404 {
+  font-size: 120px;
+}
+
+.error-403 {
+  font-size: 120px;
+}
+
+ /* INFOCELL DASHBOARDS */
+.infocell {
+  border: 2px solid green;
+  border-radius: 5px 25px;
+  background-color: white;
+  padding: 5px;
+  margin: 20px 5px 5px 5px;
+}
+
+/* ----------------------
+# CUSTOM PAGINATION
+-------------------------*/
+.page-item.active .page-link {
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+}
+.pagination > li > a {
+    background-color: #ffffff;
+    color: #6c757d;
+
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > span > a:focus,
+.pagination > span > a:hover {
+    color:#111;
+    background-color: #d3d3d3;
+    border: 1px solid #6c757d;
+    box-shadow: none;
+}
+
+/* FOOTER */
+ footer {
+    background-color: #000000;
+    padding:15px 22px;
+    font-size: 14px;
+    color: white;
+    }
+
+footer a {
+        color: white;
+        }
+
+footer a.hover { color: #8ebf42;}
