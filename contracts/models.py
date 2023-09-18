@@ -127,6 +127,9 @@ class Contract(models.Model):
         verbose_name="Contract Start Date", null=True, blank=True
     )
     contract_end_date = models.DateField(verbose_name="Contract End Date", null=True, blank=True)
+    supplier_start_date = models.DateField(
+        verbose_name="Supplier Start Date", null=True, blank=True
+    )
     account_number = models.CharField(
         verbose_name="Account Number", max_length=100, null=True, blank=True
     )

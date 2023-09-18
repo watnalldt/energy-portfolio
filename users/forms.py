@@ -1,3 +1,4 @@
+from captcha.fields import ReCaptchaField
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
@@ -19,6 +20,7 @@ class CustomUserChangeForm(UserChangeForm):
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput())
+    captcha = ReCaptchaField()
 
     class Meta:
         model = User

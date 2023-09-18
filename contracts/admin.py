@@ -74,6 +74,7 @@ class ContractResource(resources.ModelResource):
             "reference_4",
             "contract_start_date",
             "contract_end_date",
+            "supplier_start_date",
             "account_number",
             "eac",
             "day_consumption",
@@ -193,6 +194,7 @@ class ContractAdmin(ImportExportModelAdmin, admin.ModelAdmin):
                     (
                         "contract_start_date",
                         "contract_end_date",
+                        "supplier_start_date",
                     ),
                     "is_ooc",
                 ),
@@ -238,7 +240,7 @@ class ContractAdmin(ImportExportModelAdmin, admin.ModelAdmin):
             },
         ),
         (
-            "Commissons",
+            "Commissions",
             {
                 "description": "Enter the following",
                 # Enable a Collapsible Section
