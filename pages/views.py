@@ -69,7 +69,7 @@ def meter_reading_submission(request):
                     subject,
                     message,
                     settings.EMAIL_HOST_USER,
-                    ["david@energyportfolio.co.uk"],
+                    ["meterreads@energyportfolio.co.uk"],
                 )
                 if "attachment" in request.FILES:
                     attachment = request.FILES.get("attachment")
