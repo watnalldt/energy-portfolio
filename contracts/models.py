@@ -20,6 +20,8 @@ class ContractsManager(models.Manager):
 
 
 class UtilityQuerySet(models.QuerySet):
+    """Returns contracts base on either gas or electricity"""
+
     def gas(self):
         return self.filter(utility__utility="Gas").prefetch_related("client", "supplier", "utility")
 
@@ -30,6 +32,8 @@ class UtilityQuerySet(models.QuerySet):
 
 
 class ContractTypeQuerySet(models.QuerySet):
+    """Returns contracts based on either  seamless or non-seamless"""
+
     def seamless(self):
         return self.filter(contract_type="SEAMLESS").select_related("client", "supplier", "utility")
 
@@ -41,18 +45,31 @@ class ContractTypeQuerySet(models.QuerySet):
 
 class Contract(models.Model):
     class ContractType(models.TextChoices):
+        """Determines if the contract is seamless or non-seamless. Defaults to seamless"""
+
         SEAMLESS = "SEAMLESS", _("Seamless")
         NON_SEAMLESS = "NON_SEAMLESS", _("Non-Seamless")
 
     class ContractStatus(models.TextChoices):
+        """Determines if status of the contract is live or removed. Defaults to live"""
+
         LIVE = "LIVE", _("Live")
         REMOVED = "REMOVED", _("Removed")
 
     class OutOfContract(models.TextChoices):
+        """The default is set to No
+
+        This field is taken from those contracts that
+        are designated as out of contract in the master spreadsheets.
+        It does not depend on the contract end date
+        """
+
         YES = "YES", _("Yes")
         NO = "NO", _("No")
 
     class DirectorsApproval(models.TextChoices):
+        """The default is set to No"""
+
         YES = "YES", _("Yes")
         NO = "NO", _("No")
 
