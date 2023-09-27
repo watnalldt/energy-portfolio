@@ -19,7 +19,7 @@ class SupplierResource(resources.ModelResource):
 
 class SupplierAdmin(ImportExportModelAdmin):
     resource_class = SupplierResource
-    list_display = ("supplier", "suppliers_link")
+    list_display = ("supplier", "email", "suppliers_link")
     list_filter = ("supplier",)
     ordering = ("supplier",)
     search_fields = ("supplier",)

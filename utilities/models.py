@@ -19,6 +19,7 @@ class Utility(TimeStampedModel):
 
 class Supplier(TimeStampedModel):
     supplier = models.CharField(max_length=100, unique=True)
+    email = models.EmailField(null=True, blank=True)
     history = HistoricalRecords()
 
     class Meta:
