@@ -75,6 +75,7 @@ class AccountManagerAdmin(admin.ModelAdmin):
         "email",
         "clients_link",
     )
+    ordering = ("email",)
     search_fields = ("email",)
 
     @admin_changelist_link(
@@ -91,6 +92,7 @@ admin.site.register(AccountManager, AccountManagerAdmin)
 
 class ClientManagerAdmin(admin.ModelAdmin):
     list_display = ("email",)
+    ordering = ("email",)
     search_fields = ("email",)
 
 

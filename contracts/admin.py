@@ -135,7 +135,7 @@ class ContractAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     show_full_result_count = False
     resource_class = ContractResource
     list_per_page = 10
-    ordering = ("id",)
+    ordering = ("client",)
     list_display = (
         "id",
         "business_name",

@@ -108,7 +108,7 @@ class Contract(models.Model):
     )
     business_name = models.CharField(verbose_name="Business Name", max_length=255)
     company_reg_number = models.CharField(
-        verbose_name="Company Reg Number", max_length=100, null=True, blank=True
+        verbose_name="Company Reg Number", max_length=250, null=True, blank=True
     )
     utility = models.ForeignKey(
         Utility,

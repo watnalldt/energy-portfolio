@@ -284,7 +284,7 @@ DJANGO_ADMIN_LOGS_DELETABLE = True
 
 PASSWORD_RESET_TIMEOUT = 259200  # 3 days, in seconds
 MAX_UPLOAD_SIZE = "5242880"
-
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 # Deployment Settings
 
 # Protection against XSS attacks
