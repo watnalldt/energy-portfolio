@@ -160,3 +160,5 @@ environment.yml
 cert.crt
 cert.key
 qodana.yaml
+install-key.pem
+install.pem

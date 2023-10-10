@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     ALLOWED_HOSTS=(list, []),
     DEBUG=(bool, False),
+    DEBUG_TOOLBAR=(bool, False),
 )
 env.read_env(str(BASE_DIR / ".env.development"))
 
@@ -30,6 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 ALLOWED_HOSTS: list[str] = env("ALLOWED_HOSTS")
 DEBUG = env("DEBUG")
+DEBUG_TOOLBAR = env("DEBUG_TOOLBAR")
 
 
 # Application definition
@@ -88,6 +90,13 @@ MIDDLEWARE = [
     "axes.middleware.AxesMiddleware",  # Axes
     "django_auto_logout.middleware.auto_logout",  # Auto-logout
 ]
+
+# Enable the debug toolbar only in DEBUG mode.
+if DEBUG and DEBUG_TOOLBAR:
+    INSTALLED_APPS.append("debug_toolbar")
+    MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
+    INTERNAL_IPS = ["127.0.0.1"]
+
 AUTH_USER_MODEL = "users.User"
 LOGOUT_REDIRECT_URL = "users:login"
 ROOT_URLCONF = "config.urls"
