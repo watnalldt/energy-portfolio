@@ -1,0 +1,32 @@
+<div class="chart-container"
+     style="position: relative;
+            height:30vh;
+            width:30vw">
+    <div class="row">
+        <div class="col-md-8">
+            <h5 class="text-center">Contract Expiry Days</h5>
+            <!-- Create a canvas for the pie chart -->
+            <canvas id="expiryChart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let thirtyDays = {{ expiry_30_days }};
+            let sixtyDays = {{ expiry_60_days }};
+            let greaterDays = {{ expiry_over_60_days }};
+            let outofContract = {{ out_of_contract }};
+
+            let ctx = document.getElementById('expiryChart').getContext('2d');
+            let expiryChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['30 Days', '60 Days', 'Over 60 Days', 'Out of Contract' ],
+                    datasets: [{
+                        data: [thirtyDays, sixtyDays, greaterDays, outofContract,],
+                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(0, 72, 186)', 'rgb(196,98,16)'],
+                    }]
+                },
+            });
+        });
+</script>

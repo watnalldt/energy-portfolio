@@ -164,7 +164,7 @@ def reset_password(request):
 class AccountManagerView(LoginRequiredMixin, HTMLTitleMixin, TemplateView):
     # Returns the Account Manager's Dashboard on login.
     model = Client
-    template_name = "account_managers/account_manager_dashboard1.html"
+    template_name = "account_managers/account_managers_dashboard_2.html"
     html_title = "My Dashboard"
 
 

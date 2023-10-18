@@ -1,0 +1,32 @@
+<div class="chart-container"
+     style="position: relative;
+            height:30vh;
+            width:30vw">
+    <div class="row">
+        <div class="col-md-8">
+            <h5 class="text-center">Contracts By Year</h5>
+            <!-- Create a canvas for the pie chart -->
+            <canvas id="yearChart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let thisYear = {{ contracts_this_year }};
+            let nextYear = {{ contracts_next_year }};
+            let previousYear = {{ contracts_previous_years }};
+
+
+            let ctx = document.getElementById('yearChart').getContext('2d');
+            let yearChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['2023', '2024', 'Previous Year Contracts'],
+                    datasets: [{
+                        data: [thisYear, nextYear, previousYear,],
+                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', "rgb(255, 126, 0)"],
+                    }]
+                },
+            });
+        });
+</script>

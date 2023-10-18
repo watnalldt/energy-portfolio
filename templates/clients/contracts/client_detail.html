@@ -52,12 +52,46 @@
             </div>
         </div>
     </div>
+    <br>
 {% endblock content %}
 {% block extra_js %}
     <script>
-    $(document).ready(function () {
-      $('#cl_list').DataTable();
-    });
+    $(document).ready(function() {
+    $('#cl_list').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copyHtml5',
+                text: '<i class="fa-solid fa-copy"></i> Copy',
+                titleAttr: 'Copy to clipboard',
+                title: 'Client Contracts',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fa-solid fa-file-excel"></i> Excel',
+                titleAttr: 'Export to Excel',
+                title: 'Client Contracts',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
 
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="fa-solid fa-file-pdf"></i> PDF',
+                titleAttr: 'Export to PDF',
+                title: 'Client Contracts',
+                exportOptions: {
+                     columns: [ 0, ':visible' ]
+                }
+            },
+            'colvis'
+        ]
+    } );
+} );
     </script>
 {% endblock extra_js %}
+}

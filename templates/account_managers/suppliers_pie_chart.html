@@ -1,0 +1,33 @@
+<div class="chart-container"
+     style="position: relative;
+            height:30vh;
+            width:30vw">
+    <div class="row">
+        <div class="col-md-8">
+            <h5 class="text-center">Top Suppliers Breakdown</h5>
+            <!-- Create a canvas for the pie chart -->
+            <canvas id="supplierChart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let coronaContracts = {{ corona_contracts }};
+            let pozitiveContracts = {{ pozitive_contracts }};
+            let crownContracts = {{ crown_contracts }};
+            let sseContracts = {{ sse_contracts }};
+            let eonContracts = {{ eon_contracts }};
+
+            let ctx = document.getElementById('supplierChart').getContext('2d');
+            let supplierChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Corona', 'Pozitive', 'Crown', 'SSE', 'E.ON', ],
+                    datasets: [{
+                        data: [coronaContracts, pozitiveContracts, crownContracts, sseContracts, eonContracts,],
+                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', "rgb(0, 72, 186)", "rgb(171, 39, 79)", "rgb(255, 191, 0)"],
+                    }]
+                },
+            });
+        });
+</script>
